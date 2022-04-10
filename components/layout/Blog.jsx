@@ -11,6 +11,13 @@ const Blog = ({ children }) => {
 
         <ul className="hidden  lg:flex gap-12 text-xl font-Manrope font-extrabold">
           <li>
+            <Link href="/blog">
+              <a className="transition-colors duration-150 hover:text-blue-500 dark:hover:text-blue-600">
+                Главная
+              </a>
+            </Link>
+          </li>
+          <li>
             <Link href="/blog/changelogs">
               <a className="transition-colors duration-150 hover:text-blue-500 dark:hover:text-blue-600">
                 Обновления

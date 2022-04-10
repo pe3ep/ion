@@ -16,7 +16,7 @@ const Navigation = ({ children }) => {
           доступно для загрузки. */}
           Приложение в разработке.
         </h1>
-        <Link href="blog/beta">
+        <Link href="/blog/beta">
           <div className="flex gap-2 items-center cursor-pointer">
             <h1 className="text-xl font-Manrope font-light">Подробнее</h1>
             <svg
@@ -85,6 +85,7 @@ const Navigation = ({ children }) => {
           <NavButton href="/download">Скачать</NavButton>
         </div>
       </div>
+
       {children}
     </>
   )
