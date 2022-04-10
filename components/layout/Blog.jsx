@@ -4,7 +4,7 @@ const Blog = ({ children }) => {
   return (
     <>
       {/* TODO: make a blog */}
-      <div className="transition-colors duration-150 sticky -z-10 lg:z-10 flex justify-around items-center top-24 h-20 bg-slate-200 dark:bg-zinc-900 dark:border-neutral-800 border-b-2 border-gray-300">
+      <div className="transition-colors duration-150 mb-8 lg:mb-20 sticky -z-10 lg:z-10 flex justify-around items-center top-24 h-20 bg-slate-200 dark:bg-zinc-900 dark:border-neutral-800 border-b-2 border-gray-300">
         <h1 className="text-xl font-Inter font-medium">
           Вы находитесь на странице Блога.
         </h1>
@@ -26,7 +26,7 @@ const Blog = ({ children }) => {
           </li>
         </ul>
       </div>
-      {children}
+      <div className="px-12">{children}</div>
     </>
   )
 }

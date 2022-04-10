@@ -10,7 +10,7 @@ const Navigation = ({ children }) => {
   var [open, setOpen] = useState(false)
   return (
     <>
-      <div className="hidden bg-neutral-900 text-white h-24 lg:h-16 lg:flex flex-col md:flex-row md:gap-4 justify-center items-center">
+      <div className="hidden bg-black text-white h-24 lg:h-16 lg:flex flex-col md:flex-row md:gap-4 justify-center items-center">
         <h1 className="text-xl font-Manrope font-extrabold">
           {/* Обновление <span className="p-1 m-1 bg-black rounded-lg">v2.0.0</span>{' '}
           доступно для загрузки. */}
@@ -37,7 +37,7 @@ const Navigation = ({ children }) => {
         </Link>
       </div>
 
-      <div className="[ flex justify-between items-center lg:px-12 sticky top-0 ] [ h-24 bg-transparent ] [ border-gray-300 dark:border-neutral-800 border-b-2 ]">
+      <div className="[ bg-slate-100 dark:bg-neutral-900 flex justify-between items-center lg:px-12 sticky top-0 ] [ h-24 bg-transparent ] [ border-gray-300 dark:border-neutral-800 border-b-2 ]">
         <div className="flex items-center flex-row-reverse ml-8 lg:ml-0">
           <div className="z-50 cursor-pointer absolute left-[50%] translate-x-[-50%] lg:relative lg:translate-x-0 lg:left-0">
             <Link href="/">
@@ -53,7 +53,7 @@ const Navigation = ({ children }) => {
             <NavToggle opened={open} />
           </button>
         </div>
-        <Links opened={open} />
+        <Links opened={open} onClick={() => setOpen(!open)} />
         <nav className="hidden lg:flex lg:items-center">
           <ul className="flex absolute left-[50%] translate-x-[-50%] flex-row gap-12">
             <li>
@@ -85,7 +85,7 @@ const Navigation = ({ children }) => {
           <NavButton href="/download">Скачать</NavButton>
         </div>
       </div>
-      {children}
+      <div className="h-[200vh]">{children}</div>
     </>
   )
 }
@@ -95,18 +95,24 @@ export default Navigation
 const Links = (props) => {
   if (props.opened == true) {
     return (
-      <nav className="fixed p-0 bg-neutral-50 dark:bg-neutral-900 w-full top-0 h-[100vh] flex px-24 py-48 lg:bg-transparent lg:dark:bg-transparent lg:p-0 lg:h-auto lg:absolute lg:left-[50%] lg:translate-x-[-50%] lg:top-auto lg:translate-y-0">
+      <nav className="fixed z-40 p-0 bg-neutral-50 dark:bg-neutral-900 w-full top-0 h-[100vh] flex px-24 py-48 lg:bg-transparent lg:dark:bg-transparent lg:p-0 lg:h-auto lg:absolute lg:left-[50%] lg:translate-x-[-50%] lg:top-auto lg:translate-y-0">
         <ul className="flex flex-col gap-24">
           <li>
             <Link href="/">
-              <a className="text-xl font-Manrope font-extrabold dark:text-white">
+              <a
+                onClick={props.onClick}
+                className="text-xl font-Manrope font-extrabold dark:text-white"
+              >
                 Главная
               </a>
             </Link>
           </li>
           <li>
             <Link href="/blog/">
-              <a className="text-xl font-Manrope font-extrabold dark:text-white">
+              <a
+                onClick={props.onClick}
+                className="text-xl font-Manrope font-extrabold dark:text-white"
+              >
                 Блог
               </a>
             </Link>
@@ -114,6 +120,7 @@ const Links = (props) => {
           <li>
             <a
               href="https://github.com/pe3ep/ION"
+              onClick={props.onClick}
               className="text-xl font-Manrope font-extrabold dark:text-white"
             >
               Исходный код
