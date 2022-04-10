@@ -6,7 +6,6 @@ const Home = () => {
       <Head>
         <title>Главная - ION</title>
       </Head>
-      <div className="h-screen">gay</div>
     </>
   )
 }

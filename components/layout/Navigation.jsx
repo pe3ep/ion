@@ -85,7 +85,7 @@ const Navigation = ({ children }) => {
           <NavButton href="/download">Скачать</NavButton>
         </div>
       </div>
-      <div className="h-[200vh]">{children}</div>
+      {children}
     </>
   )
 }
