@@ -5,7 +5,7 @@ const index = () => {
   return (
     <>
       <Head>
-        <title>Обновления - IOТ</title>
+        <title>Обновления - ION</title>
       </Head>
       <Blog>
         <div>Index (changelogs)</div>
