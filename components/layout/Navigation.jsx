@@ -39,7 +39,7 @@ const Navigation = ({ children }) => {
 
       <div className="[ bg-slate-100 dark:bg-neutral-900 flex justify-between items-center lg:px-12 sticky top-0 ] [ h-24 bg-transparent ] [ border-gray-300 dark:border-neutral-800 border-b-2 ]">
         <div className="flex items-center flex-row-reverse ml-8 lg:ml-0">
-          <div className="z-50 cursor-pointer absolute left-[50%] translate-x-[-50%] lg:relative lg:translate-x-0 lg:left-0">
+          <div className="cursor-pointer absolute left-[50%] translate-x-[-50%] lg:relative lg:translate-x-0 lg:left-0">
             <Link href="/">
               <Image
                 src={IONlogo}
@@ -53,7 +53,9 @@ const Navigation = ({ children }) => {
             <NavToggle opened={open} />
           </button>
         </div>
+
         <Links opened={open} onClick={() => setOpen(!open)} />
+
         <nav className="hidden lg:flex lg:items-center">
           <ul className="flex absolute left-[50%] translate-x-[-50%] flex-row gap-12">
             <li>
@@ -93,12 +95,17 @@ const Navigation = ({ children }) => {
 
 export default Navigation
 
-const Links = (props) => {
+const Links = (props, { isVisble }) => {
   if (props.opened == true) {
     return (
-      <nav className="fixed z-40 p-0 bg-neutral-50 dark:bg-neutral-900 w-full top-0 h-[100vh] flex px-24 py-48 lg:bg-transparent lg:dark:bg-transparent lg:p-0 lg:h-auto lg:absolute lg:left-[50%] lg:translate-x-[-50%] lg:top-auto lg:translate-y-0">
-        <ul className="flex flex-col gap-24">
-          <li>
+      <nav
+        className="fixed z-40 p-0 bg-white dark:bg-neutral-900 outline-2 outline outline-gray-300 dark:outline-neutral-800
+           left-[50%] translate-x-[-50%] w-[90%] top-28 rounded-xl shadow-xl
+            flex px-24 py-20
+             lg:hidden"
+      >
+        <ul className="flex flex-col w-full gap-8">
+          <li className="transition-colors duration-150 bg-transparent hover:bg-slate-100 hover:dark:bg-neutral-800 px-4 py-6 rounded-md">
             <Link href="/">
               <a
                 onClick={props.onClick}
@@ -108,7 +115,7 @@ const Links = (props) => {
               </a>
             </Link>
           </li>
-          <li>
+          <li className="transition-colors duration-150 bg-transparent hover:bg-slate-100 hover:dark:bg-neutral-800 px-4 py-6 rounded-md">
             <Link href="/blog/">
               <a
                 onClick={props.onClick}
@@ -118,7 +125,7 @@ const Links = (props) => {
               </a>
             </Link>
           </li>
-          <li>
+          <li className="transition-colors duration-150 bg-transparent hover:bg-slate-100 hover:dark:bg-neutral-800 px-4 py-6 rounded-md">
             <a
               href="https://github.com/pe3ep/ION"
               onClick={props.onClick}
@@ -131,44 +138,48 @@ const Links = (props) => {
       </nav>
     )
   } else {
-    return
+    return null
   }
 }
 
 const NavToggle = (props) => {
   if (props.opened == false) {
     return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className=" h-8 w-8 lg:hidden z-50 button"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M4 6h16M4 12h16M4 18h16"
-        />
-      </svg>
+      <div className="bg-neutral-200 dark:bg-neutral-800 p-2 rounded-md lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className=" h-8 w-8 lg:hidden z-50 button"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </div>
     )
   } else {
     return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="button h-8 w-8 lg:hidden z-50 "
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M6 18L18 6M6 6l12 12"
-        />
-      </svg>
+      <div className="bg-neutral-200 dark:bg-neutral-800 p-2 rounded-md lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="button h-8 w-8 lg:hidden z-50 "
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </div>
     )
   }
 }

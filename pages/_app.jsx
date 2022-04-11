@@ -29,6 +29,11 @@ function MyApp({ Component, pageProps }) {
     }
   }, [router])
 
+  useEffect(() => {
+    document.body.classList.add('bg-white')
+    document.body.classList.add('dark:bg-neutral-900')
+  })
+
   return (
     <>
       <Head>
